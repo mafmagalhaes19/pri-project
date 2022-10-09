@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time #This package lets us pause execution for a bit
 from selenium.webdriver.common.by import By
 
-path_to_file = "reviews.csv"
+path_to_file = "datasets/scraping/reviews.csv"
 
 def get_restaurant_reviews(restaurant_id, restaurant_url):
     # import the webdriver
