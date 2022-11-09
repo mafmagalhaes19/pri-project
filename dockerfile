@@ -12,6 +12,6 @@ COPY reviews.json /datasets/json/reviews.json
 
 COPY reviews_schema.json /datasets/json/schemas/reviews_schema.json
 
-COPY startup.sh /scripts/startup.sh
+COPY startup.sh startup.sh
 
-ENTRYPOINT ["/scripts/startup.sh"]
+ENTRYPOINT ["startup.sh"]
