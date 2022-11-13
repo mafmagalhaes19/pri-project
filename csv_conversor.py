@@ -15,7 +15,7 @@ def make_json(csvFilePath, jsonFilePath):
              
             # Assuming a column named 'No' to
             # be the primary key
-            key = rows['id_ta']
+            key = rows['restaurant_id']
             data[key] = rows
  
     # Open a json writer, and use the json.dumps()
@@ -24,7 +24,7 @@ def make_json(csvFilePath, jsonFilePath):
         jsonf.write(json.dumps(data, indent=4))
 
 
-csvPath = r'datasets/clean_ta_dataset.csv'
+csvPath = r'datasets/final_data.csv'
 jsonPath = r'datasets/json/restaurants.json'
 
 make_json(csvPath, jsonPath)
