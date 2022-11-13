@@ -1,0 +1,72 @@
+{
+    "add-field": [
+        {
+            "name": "index",
+            "type": "pint",
+            "indexed": false,
+            "stored": true
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "city",
+            "type": "string",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "cuisine_style",
+            "type": "text_general",
+            "indexed": true,
+            "stored": true,
+            "multiValued": true
+        },
+        {
+            "name": "ranking",
+            "type": "pfloat",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "rating",
+            "type": "pfloat",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "price_range",
+            "type": "string",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "number_of_reviews",
+            "type": "pint",
+            "indexed": false,
+            "stored": true
+        },
+        {
+            "name": "reviews",
+            "type": "text_general",
+            "indexed": true,
+            "stored": true,
+            "multiValued": true
+        },
+        {
+            "name": "restaurant_url",
+            "type": "string",
+            "indexed": false,
+            "stored": true
+        },
+        {
+            "name": "restaurant_id",
+            "type": "string",
+            "indexed": false,
+            "stored": true
+        }
+    ]
+}
