@@ -1,70 +1,163 @@
 {
+    "add-field-type": [
+
+        {
+            "name":"restaurantName",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ClassicFilterFactory"},
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.KStemFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ClassicFilterFactory"},
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.KStemFilterFactory"}
+                ]
+            }
+        },
+
+        {
+            "name":"restaurantCity",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ClassicFilterFactory"},
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.KStemFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ClassicFilterFactory"},
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.KStemFilterFactory"}
+                ]
+            }
+        },
+
+        {
+            "name":"restaurantList",
+            "class":"solr.TextField",
+            "multiValued":true,
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {
+                        "class":"solr.StopFilterFactory",
+                        "words":"stopwords.txt",
+                        "ignoreCase":"true"
+                    },
+                    {
+                        "class":"solr.LowerCaseFilterFactory"
+                    }
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {
+                        "class":"solr.StopFilterFactory",
+                        "words":"stopwords.txt",
+                        "ignoreCase":"true"
+                    },
+                    {
+                        "class":"solr.SynonymGraphFilterFactory",
+                        "expand":"true",
+                        "ignoreCase":"true",
+                        "synonyms":"synonyms.txt"
+                    },
+                    {
+                        "class":"solr.LowerCaseFilterFactory"
+                    }
+                ]
+            }
+        }
+        
+    ],
+
+
     "add-field": [
         {
-            "name": "index",
-            "type": "pint",
-            "indexed": false,
-            "stored": true
-        },
-        {
             "name": "name",
-            "type": "string",
+            "type": "restaurantName",
             "indexed": true,
             "stored": true
         },
         {
             "name": "city",
-            "type": "string",
-            "indexed": true,
-            "stored": true
+            "type": "restaurantCity",
+            "indexed": true
         },
         {
             "name": "cuisine_style",
-            "type": "text_general",
+            "type": "restaurantList",
             "indexed": true,
             "stored": true,
             "multiValued": true
         },
         {
             "name": "ranking",
-            "type": "pfloat",
+            "type": "solr.FloatPointField",
             "indexed": true,
             "stored": true
         },
         {
             "name": "rating",
-            "type": "pfloat",
+            "type": "solr.FloatPointField",
             "indexed": true,
             "stored": true
         },
         {
             "name": "price_range",
-            "type": "string",
+            "type": "solr.TextField",
             "indexed": true,
             "stored": true
         },
         {
             "name": "number_of_reviews",
-            "type": "pint",
+            "type": "solr.IntPointField",
             "indexed": false,
             "stored": true
         },
         {
             "name": "reviews",
-            "type": "text_general",
+            "type": "restaurantList",
             "indexed": true,
-            "stored": true,
-            "multiValued": true
+            "stored": true
         },
         {
             "name": "restaurant_url",
-            "type": "string",
+            "type": "solr.TextField",
             "indexed": false,
             "stored": true
         },
         {
             "name": "restaurant_id",
-            "type": "string",
+            "type": "solr.TextField",
             "indexed": false,
             "stored": true
         }
