@@ -160,6 +160,42 @@
             "type": "solr.TextField",
             "indexed": false,
             "stored": true
+        },
+        {
+            "name": "good_reviews",
+            "type": "restaurantList",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "bad_reviews",
+            "type": "restaurantList",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "count_good_reviews",
+            "type": "solr.FloatPointField",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "count_bad_reviews",
+            "type": "solr.FloatPointField",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "count_total_reviews",
+            "type": "solr.FloatPointField",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "restaurant_sentiment_analysis",
+            "type": "solr.FloatPointField",
+            "indexed": true,
+            "stored": true
         }
     ]
 }
