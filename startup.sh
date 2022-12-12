@@ -8,6 +8,9 @@ solr start
 
 sleep 10
 
+
+cp /datasets/json/synonyms.txt /var/solr/data/restaurants/conf
+
 # Restaurants
 # Schema definition via API
 curl -X POST -H 'Content-type:application/json' \
